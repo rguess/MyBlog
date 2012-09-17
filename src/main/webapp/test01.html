@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link href="/blog/css/style.css" rel="stylesheet" type="text/css"
+	media="screen" />
+<link href="/blog/css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="screen" />
+<script type="text/javascript" src="/blog/js/jquery-1.7.2.js"
+	charset="UTF-8"></script>
+<script type="text/javascript">
+	var str = window.location.href;
+	var pos = str.indexOf("?")
+	var parastr = str.substring(pos + 1);
+	$(function() {
+		$.ajax({
+			url : 'rest/Blog/getBlog?'+parastr,
+			type : 'GET',
+			success : function(meta) {
+				$("#title").empty().append(meta.title);
+				$("#author").empty().append("author:"+meta.author);
+				$("#time").empty().append(meta.time);
+				$("#entry").empty().append(meta.content);
+			}
+		});
+	})
+</script>
+</head>
+<body style="background-color: #e5f4f8">
+
+
+	<div id="wrapper" style="text-align: center; margin-top: 50px">
+		<div id="page" style="text-align: center; margin-right: 200px">
+			<div id="content">
+				<div class="post">
+					<h2 class="title">
+						<a href="#" id="title"></a>
+					</h2>
+					<p class="meta">
+						 <span class="date" id="author">123</span>
+					</p>
+					<div style="clear: both;">&nbsp;</div>
+					<div class="entry">
+						<div id="entry"></div>
+					</div>
+					<p class="meta">
+						<span class="date" id="time" style="float: right;"></span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
