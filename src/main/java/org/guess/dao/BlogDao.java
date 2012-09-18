@@ -6,7 +6,7 @@ import org.guess.bean.Blog;
 
 public interface BlogDao {
 
-	public void saveBlog(Blog blog);
+	public Blog saveBlog(Blog blog);
 	public void deleteBlog(Blog blog);
 	public void updataBlog(Blog blog);
 	public Blog getBlogById(int id);

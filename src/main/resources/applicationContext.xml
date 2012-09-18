@@ -28,6 +28,8 @@
 			<bean class="org.guess.service.BlogService">
 				<property name="dao" ref="hdao"></property>
 			</bean>
+			
+			<bean class="org.guess.service.WeatherService"/>
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />

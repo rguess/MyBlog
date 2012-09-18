@@ -9,11 +9,12 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 public class BlogDaoImpl extends HibernateDaoSupport implements BlogDao {
 
 	@Override
-	public void saveBlog(Blog blog) {
+	public Blog saveBlog(Blog blog) {
 
 		this.getHibernateTemplate().save(blog);
 		this.getHibernateTemplate().flush();
-
+		
+		return blog;
 	}
 
 	@Override

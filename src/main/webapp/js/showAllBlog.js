@@ -35,7 +35,7 @@ function showAllBlog() {
 					//td.innerHTML = "head";
 					tbodyTr.appendChild(td);
 				}
-				tbodyTr.childNodes[0].innerHTML = "<a href='test01.html?id="+meta[i].id+"'>"+meta[i].title+"</a>";
+				tbodyTr.childNodes[0].innerHTML = "<a href='showblog.html?id="+meta[i].id+"'>"+meta[i].title+"</a>";
 				tbodyTr.childNodes[1].innerHTML = "<a href='#'>"+meta[i].time+"</a>";
 				tbodyTr.childNodes[2].innerHTML = "<a href='#'>"+meta[i].author+"</a>";
 				tbody.appendChild(tbodyTr);
