@@ -4,6 +4,13 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>首页</title>
+<style type="text/css">
+#weather li {
+	color: green;
+	font-size: 13px
+}
+</style>
+
 <link href="/blog/css/style.css" rel="stylesheet" type="text/css"
 	media="screen" />
 <link href="/blog/css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -125,14 +132,13 @@
 					</li>
 					<li>
 						<h2 style="color: green">成都这鬼天气</h2>
-						<ul>
-							<li><a href="#" onclick="getWeather()" id="">Starter Web
-									Hosting</a></li>
-							<li><a href="#">Business Web Hosting</a></li>
-							<li><a href="#">VPS Servers</a></li>
-							<li><a href="#">Dedicated Servers</a></li>
-							<li><a href="#">Templated Web Design</a></li>
-							<li><a href="#">Custom Web Design</a></li>
+						<ul id="weather">
+							<li id="today"></li>
+							<li id="tomororw"></li>
+							<li id="w1"></li>
+							<li id="w2"></li>
+							<li id="w3"></li>
+							<li id="w4"></li>
 						</ul>
 					</li>
 					<li>
