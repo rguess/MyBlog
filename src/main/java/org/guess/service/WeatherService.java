@@ -21,22 +21,33 @@ public class WeatherService {
 	@GET
 	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getWeather() throws MalformedURLException, IOException, JSONException {
+	public String getWeather() throws MalformedURLException, IOException,
+			JSONException {
 
-		HttpURLConnection huc = (HttpURLConnection) new URL(
-				"http://m.weather.com.cn/data/101270101.html")
-				.openConnection();
-		huc.setRequestMethod("GET");
-		huc.setUseCaches(true);
-		huc.connect();
-		InputStream is = huc.getInputStream();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-		StringBuffer temp = new StringBuffer();
-		String str;
-		while ((str = reader.readLine()) != null) {
-			temp.append(str + "\n");
+		try {
+			HttpURLConnection huc = (HttpURLConnection) new URL(
+					"http://m.weather.com.cn/data/101270101.html")
+					.openConnection();
+			huc.setRequestMethod("GET");
+			huc.setUseCaches(true);
+			huc.connect();
+			InputStream is = huc.getInputStream();
+			BufferedReader reader = new BufferedReader(
+					new InputStreamReader(is));
+			StringBuffer temp = new StringBuffer();
+			String str;
+			while ((str = reader.readLine()) != null) {
+				temp.append(str + "\n");
+			}
+			System.out.println(temp.toString());
+			is.close();
+			reader.close();
+			return temp.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			
 		}
-		System.out.println(temp.toString());
-		return temp.toString();
+		return null;
 	}
 }
