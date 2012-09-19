@@ -192,12 +192,12 @@ a:hover {
 #content {
 	float: right;
 	width: 620px;
-	padding: 10px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 
 .post .title {
 	margin-bottom: 10px;
-	padding: 12px 0 0 0px;
+	padding: 5px 0 0 0px;
 	letter-spacing: -.5px;
 	color: #000000;
 }
@@ -325,9 +325,13 @@ a:hover {
 	color: #464032;
 }
 
-.rightbar {
-	width: 100px;
-	height: 500px;
-	background-color: blue;
+#weather li img {
+	float: right;
+	margin-top: 7px;
+	margin-right: 12px;
+}
+
+.music{
+	margin-top:80px;
 	float: right;
 }
