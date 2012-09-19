@@ -8,23 +8,28 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
-@Path("/weather")
-public class WeatherService {
+import org.guess.util.MusicXMLParser;
 
+@Path("Music")
+public class MusicService {
+
+	@Path("queryMusic")
 	@GET
-	@Path("/get")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String getWeather() {
-
+	@Produces(MediaType.TEXT_HTML)
+	public String queryMusic(@Context HttpServletRequest request) {
+		
+		//String name = request.getParameter("mName");
 		try {
 			HttpURLConnection huc;
 			huc = (HttpURLConnection) new URL(
-					"http://m.weather.com.cn/data/101270101.html")
+					"http://box.zhangmen.baidu.com/x?op=12&count=1&title=蓝雨$$")
 					.openConnection();
 			huc.setRequestMethod("GET");
 			huc.setUseCaches(true);
@@ -37,7 +42,7 @@ public class WeatherService {
 			while ((str = reader.readLine()) != null) {
 				temp.append(str + "\n");
 			}
-			System.out.println(temp.toString());
+			System.out.println(MusicXMLParser.getPath(temp.toString()));
 			is.close();
 			reader.close();
 			return temp.toString();
@@ -46,7 +51,6 @@ public class WeatherService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return null;
 	}
 }

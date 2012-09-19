@@ -30,6 +30,7 @@
 			</bean>
 			
 			<bean class="org.guess.service.WeatherService"/>
+			<bean class="org.guess.service.MusicService"></bean>
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />

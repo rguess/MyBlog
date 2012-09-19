@@ -331,7 +331,13 @@ a:hover {
 	margin-right: 12px;
 }
 
-.music{
-	margin-top:80px;
+.music {
+	margin-top: 80px;
 	float: right;
+}
+
+td.login {
+	padding-right: 10px;
+	color: black;
+	font-size: 15px
 }

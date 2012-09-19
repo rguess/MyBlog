@@ -12,6 +12,7 @@
 <script type="text/javascript" src="/blog/js/jquery-1.7.2.js"
 	charset="UTF-8"></script>
 <script type="text/javascript" src="/blog/js/weather.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/blog/js/index-effect.js" charset="UTF-8"></script>
 </head>
 <body style="background-color: #e5f4f8">
 	<div id="wrapper">
@@ -110,20 +111,42 @@
 			<div id="sidebar">
 				<ul>
 					<li>
-						<h2>关于 我</h2>
-						<p>刚盘点了一下，我家除了一台下片子用的笔记本，其他一概都不是日货，倒不是故意抵制，而是这两年日货确实没什么优势，可能跟创造力下降有关吧？电器，国货质量也不赖，不差钱的买欧洲货。。。</p>
+						<h2><a href="#" class="login">登录</a></h2>
+						<div id="logindiv" style="display: none;">
+							<form action="">
+								<table style="margin-top: 20px" id="login">
+									<tr>
+										<td class="login">用户名</td>
+										<td><input type="text" style="width: 190px" /></td>
+									</tr>
+									<tr>
+										<td class="login">密码</td>
+										<td><input type="password" style="width: 190px" /></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td><input type="submit" class="btn btn-primary"
+											value="login" style="float: right;" /></td>
+									</tr>
+								</table>
+							</form>
+						</div>
 					</li>
 					<li>
-						<h2 style="color: green">成都这鬼天气</h2>
-						<ul id="weather">
+						<h2><a href="#" class="about">关于 我</a></h2>
+						<p class="about">刚盘点了一下，我家除了一台下片子用的笔记本，其他一概都不是日货，倒不是故意抵制，而是这两年日货确实没什么优势，可能跟创造力下降有关吧？电器，国货质量也不赖，不差钱的买欧洲货。。。</p>
+					</li>
+					<li>
+						<h2 style="color: green"><a href="#" class="weather">成都这鬼天气</a></h2>
+						<ul id="weather" class="weather">
 							<li id="w1" style="color: green"></li>
 							<li id="w2" style="color: green"></li>
 							<li id="w3" style="color: green"></li>
 						</ul>
 					</li>
 					<li>
-						<h2>Latest Clients</h2>
-						<ul>
+						<h2><a href="#" class="latest">Latest Clients</a></h2>
+						<ul class="latest">
 							<li><a href="#">Top 100 Web Hosting</a></li>
 							<li><a href="#">Free Web Templates</a></li>
 							<li><a href="#">WordPress Themes</a></li>
