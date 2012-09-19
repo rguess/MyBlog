@@ -25,11 +25,12 @@ public class MusicService {
 	@Produces(MediaType.TEXT_HTML)
 	public String queryMusic(@Context HttpServletRequest request) {
 		
-		//String name = request.getParameter("mName");
+		String name = request.getParameter("mName");
+		System.out.println(name);
 		try {
 			HttpURLConnection huc;
 			huc = (HttpURLConnection) new URL(
-					"http://box.zhangmen.baidu.com/x?op=12&count=1&title=蓝雨$$")
+					"http://box.zhangmen.baidu.com/x?op=12&count=1&title="+name+"$$")
 					.openConnection();
 			huc.setRequestMethod("GET");
 			huc.setUseCaches(true);
@@ -45,7 +46,7 @@ public class MusicService {
 			System.out.println(MusicXMLParser.getPath(temp.toString()));
 			is.close();
 			reader.close();
-			return temp.toString();
+			return MusicXMLParser.getPath(temp.toString());
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

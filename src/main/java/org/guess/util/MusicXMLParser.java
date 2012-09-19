@@ -25,7 +25,7 @@ public class MusicXMLParser {
 			String u = p2p.asXML();
 			String path = u.substring(u.indexOf("http://"), u.lastIndexOf("]]>"));
 			System.out.println(path);
-			return p2p.asXML();
+			return path;
 		} catch (DocumentException e) {
 			e.printStackTrace();
 			return "xml error";
