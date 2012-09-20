@@ -21,9 +21,8 @@ public class MusicXMLParser {
 			Document document = reader.read(new ByteArrayInputStream(xml.getBytes("UTF-8")));
 			Element root = document.getRootElement();
 			Element p2p = root.element("p2p");
-			Element url = p2p.element("url");
-			String u = p2p.asXML();
-			String path = u.substring(u.indexOf("http://"), u.lastIndexOf("]]>"));
+			String url = p2p.asXML();
+			String path = url.substring(url.indexOf("http://"), url.lastIndexOf("]]>"));
 			System.out.println(path);
 			return p2p.asXML();
 		} catch (DocumentException e) {
