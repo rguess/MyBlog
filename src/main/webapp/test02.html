@@ -10,28 +10,15 @@
 	media="screen" />
 <script type="text/javascript" src="/blog/js/jquery-1.7.2.js"
 	charset="UTF-8"></script>
-<!-- <script type="text/javascript" src="/blog/js/showAllBlog.js"
-	charset="UTF-8"></script> -->
+<script type="text/javascript" src="/blog/js/showAllBlog.js"
+	charset="UTF-8"></script>
+<script type="text/javascript" src="/blog/js/queryBlog.js"
+	charset="UTF-8"></script>
 <script type="text/javascript" src="/blog/js/pulishBlog.js"
 	charset="UTF-8"></script>
-	
-	<script type="text/javascript">
-		/* $(function(){
-			 function saveBlog() {
-				alert($("#content").val());
-			} 
-			
-			$("#submit").click(function(){
-				
-				alert($("#cont").val());
-				alert($("#title").val());
-			})
-		}) */
-		
-	</script>
 </head>
-<body style="background-color: #e5f4f8">
-	<div id="wrapper">
+<body style="background-color: #e5f4f8;">
+	<div id="wrapper" class="container" style="width: 1160px">
 		<div id="header">
 			<div id="logo">
 				<h1>
@@ -54,27 +41,8 @@
 			</ul>
 		</div>
 		<!-- end #menu -->
-		<div id="page">
-			<div id="content">
-
-				<div>
-					<h2 style="color: blue;">标题</h2>
-					<input type="text" name="title" style=" width: 600px; height: 30px; font-size: 25px;color: red" id="title"/>
-				</div>
-				
-				<div style="margin-top: 50px">
-					<h2 style="color: blue;">内容</h2>
-					<textarea rows="20" cols="60" style=" width: 600px; height: 400px; font-size: 25px;color: pink" id="cont"></textarea>
-				</div>
-				
-				<div style="margin-top: 50px">
-					<button class="btn btn-primary"  id="submit" onclick="saveBlog()">提交</button>
-				</div>
-
-
-			</div>
-			<!-- end #content -->
-			<div id="sidebar">
+		<div id="page" style="width: 1140px">
+			<div id="sidebar" style="float: left;">
 				<ul>
 					<li>
 						<div id="search">
@@ -95,7 +63,7 @@
 					<li>
 						<h2>博客管理</h2>
 						<ul>
-							<li><a href="#" onclick="pulishBlog();">发表文章</a></li>
+							<li><a href="#" onclick="pulishBlog()">发表文章</a></li>
 							<li><a href="#">分类管理</a></li>
 							<li><a href="#">评论管理</a></li>
 							<li><a href="#">博客设置</a></li>
@@ -116,11 +84,16 @@
 				</ul>
 			</div>
 			<!-- end #sidebar -->
+			<div id="content" style="float: left;"></div>
+			<!-- end #content -->
+			<div style="width: 100px;height: 500px;background-color: maroon;float: left;"id="sidebar"></div>
 			<div style="clear: both;">&nbsp;</div>
+			
 		</div>
 		<!-- end #page -->
 	</div>
-	<div id="footer">
+	
+	<div id="footer" style="float: left;">
 		<!-- Please leave the link to http://www.100webhosting.com intact -->
 		<p>
 			Copyright (c) 2011 Sitename.com. Design by <a

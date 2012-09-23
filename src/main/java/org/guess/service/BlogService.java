@@ -21,7 +21,7 @@ import org.guess.util.TimeTools;
 public class BlogService {
 
 	private static final Log _log = LogFactory.getLog(BlogService.class);
-	
+
 	private BlogDao dao;
 
 	public BlogDao getDao() {
@@ -36,17 +36,17 @@ public class BlogService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/listBlog")
 	public List<Blog> listBlog() {
-		
+
 		_log.info("列出清单");
 		return this.getDao().listBlog();
-		
+
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/getBlog")
 	public Blog getBlog(@Context HttpServletRequest request) {
-		
+
 		_log.info("通过id获取博客信息");
 		int id = Integer.valueOf(request.getParameter("id"));
 		System.out.println(id);
@@ -57,7 +57,7 @@ public class BlogService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/queryBlog")
 	public List<Blog> queryBlog(@Context HttpServletRequest request) {
-		
+
 		_log.info("查询Blog");
 		String queryStr = request.getParameter("queryStr");
 		System.out.println(queryStr);
@@ -71,19 +71,38 @@ public class BlogService {
 			@FormParam("title") String title,
 			@FormParam("content") String content) {
 
-//		System.out.println(title);
-//		System.out.println(content);
-		
+		// System.out.println(title);
+		// System.out.println(content);
+
 		Blog blog = new Blog();
 		blog.setTitle(title);
 		blog.setContent(content);
 		blog.setAuthor("韩寒");
 		blog.setTime(TimeTools.getCurrentTimeNoSeconds());
-		
-		
+
 		int id = this.getDao().saveBlog(blog).getId();
-		System.out.println("id=============="+id);
+		System.out.println("id==============" + id);
 		return String.valueOf(id);
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/pageBlog")
+	public List<Blog> pageBlog(@FormParam("pageIndex") int pageIndex,
+			@FormParam("pagesize") int pagesize) {
+
+		System.out.println(pageIndex);
+		System.out.println(pagesize);
+		_log.info("列出清单");
+		return this.getDao().paging(pageIndex, pagesize);
+
+	}
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/countBlog")
+	public Integer countBlog(){
+		return this.getDao().countBlog();
 	}
 
 }
