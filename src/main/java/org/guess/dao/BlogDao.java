@@ -12,4 +12,6 @@ public interface BlogDao {
 	public Blog getBlogById(int id);
 	public List<Blog> listBlog();
 	public List<Blog> queryBlog(String hql);
+	public List<Blog> paging(int pageIndex,int pageSize);
+	public Integer countBlog();
 }

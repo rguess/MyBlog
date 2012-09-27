@@ -63,6 +63,7 @@ public class TestService {
 //		for(Blog blog:list){
 //			System.out.println(blog.getContent());
 //		}
-		return this.getDao().queryBlog("");
+//		return this.getDao().queryBlog("");
+		return this.getDao().paging(0,3);
 	}
 }

@@ -2,9 +2,9 @@ function queryBlog(str) {
 	//alert($("#search-text").val());
 	var queryStr = $("#search-text").val();
 	//清空
-	$("#content").empty();
+	$("#contentt").empty();
 	//获取节点
-	var body = document.getElementById("content");
+	var body = document.getElementById("contentt");
 	//创建节点
 	var table = document.createElement("table");
 	//设置table属性
