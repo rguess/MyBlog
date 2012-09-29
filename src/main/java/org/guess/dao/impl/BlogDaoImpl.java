@@ -80,8 +80,6 @@ public class BlogDaoImpl extends HibernateDaoSupport implements BlogDao {
 					public Object doInHibernate(Session session)
 							throws HibernateException, SQLException {
 
-						System.out.println("=========pi" + pageIndex);
-						System.out.println("=========pi" + pageSize);
 						List<Blog> result = session
 								.createQuery(
 										"from Blog blog order by blog.id desc")

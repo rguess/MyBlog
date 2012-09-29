@@ -19,6 +19,7 @@ function showAllBlog(page_index, jq) {
 		var td = document.createElement("th");
 		headTr.appendChild(td);
 	}
+	console.log("ji");
 	// 设置td中的值
 	headTr.childNodes[0].innerHTML = "title";
 	headTr.childNodes[1].innerHTML = "time";
@@ -64,7 +65,6 @@ $(function() {
 		url : 'rest/Blog/countBlog',
 		type : 'GET',
 		success : function(meta) {
-			alert(meta);
 			$("#pagination").pagination(meta, {
 				num_edge_entries : 1, // 边缘页数
 				num_display_entries : 4, // 主体页数
