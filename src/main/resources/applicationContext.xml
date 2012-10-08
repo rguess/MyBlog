@@ -25,12 +25,11 @@
 				<property name="dao" ref="hdao"></property>
 			</bean>
 			
-			<bean class="org.guess.service.BlogService">
-				<property name="dao" ref="hdao"></property>
-			</bean>
-			
+			<bean class="org.guess.service.BlogService" autowire="byType"/>
 			<bean class="org.guess.service.WeatherService"/>
-			<bean class="org.guess.service.MusicService"></bean>
+			<bean class="org.guess.service.MusicService" />
+			<bean class="org.guess.service.CkeditorService" autowire="byType"/>
+			
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
