@@ -20,11 +20,9 @@
 	</bean>
 
 	<jaxrs:server id="services" address="/">
-		<jaxrs:serviceBeans >
-			<bean class="org.guess.service.TestService">
-				<property name="dao" ref="hdao"></property>
-			</bean>
-			
+		<jaxrs:serviceBeans>
+		
+			<bean class="org.guess.service.TestService" autowire="byType"/>
 			<bean class="org.guess.service.BlogService" autowire="byType"/>
 			<bean class="org.guess.service.WeatherService"/>
 			<bean class="org.guess.service.MusicService" />

@@ -1,5 +1,5 @@
 function showAllBlog(page_index, jq) {
-	var pageSize = 3;
+	var pageSize = 8;
 	// 清空
 	$("#contentt").empty();
 	// 获取节点
@@ -69,7 +69,7 @@ $(function() {
 				num_edge_entries : 1, // 边缘页数
 				num_display_entries : 4, // 主体页数
 				callback : showAllBlog,
-				items_per_page : 3, // 每页显示1项
+				items_per_page : 8, // 每页显示1项
 				prev_text : "前一页",
 				next_text : "后一页"
 			});
