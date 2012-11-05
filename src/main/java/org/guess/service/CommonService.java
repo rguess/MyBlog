@@ -11,9 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import org.springframework.context.ApplicationContextAware;
-
-public interface CommonService<T> extends ApplicationContextAware{
+public interface CommonService<T>{
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -29,10 +27,6 @@ public interface CommonService<T> extends ApplicationContextAware{
 	
 	@GET
 	public Response listAll();
-	
-	@GET
-	@Path("/getAllcount")
-	public Response getCount();
 	
 	@GET
 	@Path("/list")
