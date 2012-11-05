@@ -26,7 +26,7 @@ function queryBlog(str) {
 	thead.appendChild(headTr);
 	
 	$.ajax({
-		url : 'rest/Blog/queryBlog?queryStr='+queryStr,
+		url : 'rest/blog/'+queryStr,
 		type : 'GET',
 		success : function(meta) {
 			var tbody = document.createElement("tbody");

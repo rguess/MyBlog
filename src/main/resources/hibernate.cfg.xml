@@ -13,7 +13,7 @@
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 	 	<property name="hbm2ddl.auto">create</property>
 		<property name="show_sql">true</property>
-		<mapping package="org.guess.bean"/>
+		<mapping class="org.guess.bean.Blog"/>
 		
 	</session-factory>
 </hibernate-configuration>

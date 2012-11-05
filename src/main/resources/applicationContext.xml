@@ -9,10 +9,58 @@
     http://cxf.apache.org/jaxrs
     http://cxf.apache.org/schemas/jaxrs.xsd">
 
-
+	<context:property-placeholder />
+	<context:annotation-config />
+	<bean class="org.springframework.web.context.support.ServletContextPropertyPlaceholderConfigurer" />
+	<bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer" />
+	
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="guess"></property>
+		<property name="maxPoolSize" value="100"></property>
+		<property name="minPoolSize" value="5"></property>
+		<property name="initialPoolSize" value="5"></property>
+		<property name="maxIdleTime" value="20"></property>
+		<property name="checkoutTimeout" value="10000"></property>
+	</bean>
+	
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<!-- <property name="configLocation" value="classpath:hibernate.cfg.xml" /> -->
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		
+		<!-- 设置hibernate相关属性 create -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="generate_statistics">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.use_sql_comments">false</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<!-- 实体bean -->
+		<property name="packagesToScan">
+			<list>
+				<value>org.guess.bean</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" name="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="hibernateDao" class="org.guess.core.HibernateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
 	<bean id="hdao" class="org.guess.dao.impl.BlogDaoImpl">
@@ -21,11 +69,11 @@
 
 	<jaxrs:server id="services" address="/">
 		<jaxrs:serviceBeans>
-			<bean class="org.guess.service.TestService" autowire="byType"/>
-			<bean class="org.guess.service.BlogService" autowire="byType"/>
-			<bean class="org.guess.service.WeatherService"/>
-			<bean class="org.guess.service.MusicService" />
-			<bean class="org.guess.service.CkeditorService" autowire="byType"/>
+			<bean class="org.guess.service.impl.TestService" autowire="byType"/>
+			<bean class="org.guess.service.impl.BlogService" autowire="byType"/>
+			<bean class="org.guess.service.impl.WeatherService"/>
+			<bean class="org.guess.service.impl.MusicService" />
+			<bean class="org.guess.service.impl.CkeditorService" autowire="byType"/>
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />

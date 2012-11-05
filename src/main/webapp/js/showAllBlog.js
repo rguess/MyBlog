@@ -27,7 +27,7 @@ function showAllBlog(page_index, jq) {
 	thead.appendChild(headTr);
 
 	$.ajax({
-		url : 'rest/Blog/pageBlog',
+		url : 'rest/blog/listForPage',
 		data : {
 			"pageIndex" : page_index * 3,
 			"pagesize" : pageSize
@@ -62,7 +62,7 @@ function showAllBlog(page_index, jq) {
 $(function() {
 
 	$.ajax({
-		url : 'rest/Blog/countBlog',
+		url : 'rest/blog/listForPageCount',
 		type : 'GET',
 		success : function(meta) {
 			$("#pagination").pagination(meta, {

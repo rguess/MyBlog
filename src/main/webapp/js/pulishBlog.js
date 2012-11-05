@@ -67,7 +67,7 @@ function saveBlog() {
 	var title = $("#title").val();
 	var content = $("#cont").val();
 	$.ajax({
-		url : 'rest/Blog/saveBlog',
+		url : 'rest/blog',
 		type : 'POST',
 		data : {
 			"title" : title,

@@ -10,13 +10,12 @@
 	media="screen" />
 <script type="text/javascript" src="/blog/js/jquery-1.7.2.js"
 	charset="UTF-8"></script>
+<script type="text/javascript" src="/blog/js/jquery.getparam.js"></script>
 <script type="text/javascript">
-	var str = window.location.href;
-	var pos = str.indexOf("?")
-	var parastr = str.substring(pos + 1);
 	$(function() {
+		var id = $.getParam("id");
 		$.ajax({
-			url : 'rest/Blog/getBlog?'+parastr,
+			url : 'rest/blog/'+id,
 			type : 'GET',
 			success : function(meta) {
 				$("#title").empty().append(meta.title);
