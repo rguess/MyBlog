@@ -4,13 +4,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.guess.bean.Blog;
+import org.guess.core.HibernateDaoImpl;
 import org.guess.dao.BlogDao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-public class BlogDaoImpl extends HibernateDaoSupport implements BlogDao {
+public class BlogDaoImpl extends HibernateDaoSupport implements BlogDao{
 
 	@Override
 	public Blog saveBlog(Blog blog) {

@@ -3,8 +3,9 @@ package org.guess.dao;
 import java.util.List;
 
 import org.guess.bean.Blog;
+import org.guess.core.HibernateDao;
 
-public interface BlogDao {
+public interface BlogDao{
 
 	public Blog saveBlog(Blog blog);
 	public void deleteBlog(Blog blog);

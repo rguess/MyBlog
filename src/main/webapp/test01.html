@@ -14,11 +14,10 @@
 	$(function() {
 		$("#sub").click(function() {
 			$.ajax({
-				url : 'rest/Music/queryMusic?mName=' + $("#mname").val(),
-				type : 'GET',
+				url : 'rest/blog/2',
+				type : 'DELETE',
 				success : function(meta) {
-					alert(meta);
-					window.location.href = meta;
+					console.log(meta);
 				}
 			});
 		})
@@ -29,19 +28,7 @@
 	<div class="container" style="margin-top: 200px;">
 		<input type="text" name="mname" id="mname" /> <br /> <input
 			type="submit" value="搜索" class="btn btn-primary" id="sub" />
-		<div class="music">
-			<h2>音乐机</h2>
-			<object type="application/x-shockwave-flash"
-				data="mp3/dewplayer-multi.swf?mp3=mp3/six.mp3|mp3/test2.mp3|mp3/test3.mp3"
-				width="240" height="20" id="dewplayer-multi">
-				<param name="wmode" value="transparent" />
-				<param name="movie"
-					value="dewplayer-multi.swf?mp3=mp3/test1.mp3|mp3/test2.mp3|mp3/test3.mp3" />
-			</object>
-			<video controls autoplay name="media"> <source
-				src="http://zhangmenshiting.baidu.com/data2/music/11009824/11009824.mp3?xcode=1a8dc348909be1090ca177dffe5246f3"
-				type="audio/mpeg"></source> </video>
-		</div>
+		
 	</div>
 </body>
 </html>

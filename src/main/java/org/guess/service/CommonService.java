@@ -18,11 +18,11 @@ public interface CommonService<T>{
 	public Response saveOrUpdate(T entity);
 	
 	@DELETE
-	@Path("id")
+	@Path("/{id}")
 	public Response delete(@PathParam("id") int id);
 	
 	@GET
-	@Path("/id")
+	@Path("/{id}")
 	public Response getById(@PathParam("id") int id);
 	
 	@GET
